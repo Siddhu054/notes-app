@@ -1,0 +1,288 @@
+:root {
+  --primary-color: #7749F8;
+  --secondary-color: #5D3FD3;
+  --accent-color: #E2D9F3;
+  --background-color: #F5F3FE;
+  --text-color: #2C3E50;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  background-color: white;
+  box-shadow: var(--shadow);
+  margin: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.groups-container {
+  width: 300px;
+  padding: 20px;
+  background-color: var(--accent-color);
+  border-right: 2px solid var(--primary-color);
+}
+
+.groups-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.groups-container button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.popup input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.popup input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.group-item {
+  padding: 12px 15px;
+  margin: 8px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.group-item:hover {
+  transform: translateX(5px);
+  background-color: #f8f9fa;
+}
+
+.group-item.selected {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.02);
+}
+
+.notes-container {
+  flex: 1;
+  padding: 30px;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.notes-container form {
+  margin-bottom: 30px;
+}
+
+.notes-container textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.notes-container textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.notes-container form button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  margin-top: 10px;
+}
+
+.notes-container form button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.note-item {
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+  border-left: 4px solid var(--primary-color);
+}
+
+.note-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.note-item p {
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+}
+
+.note-item small {
+  color: #6c757d;
+  display: block;
+  font-size: 0.85rem;
+}
+
+/* Add a scrollbar style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Add overlay for popup background */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.no-selection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6c757d;
+  text-align: center;
+  padding: 20px;
+}
+
+.note-form {
+  margin-bottom: 30px;
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.note-actions button {
+  padding: 5px 10px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.note-actions button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.edit-note {
+  width: 100%;
+}
+
+.edit-note textarea {
+  width: 100%;
+  min-height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-actions button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-actions button:first-child {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.edit-actions button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-actions button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
